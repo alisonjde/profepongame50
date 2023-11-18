@@ -30,14 +30,16 @@ public class PTablero extends JPanel implements MouseListener {
 	g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
 	
 	g2d.setColor(Color.BLACK);
-	g2d.drawLine(this.getWidth()/2, 0, this.getWidth()/2, this.getHeight());
-	int x = this.getWidth()/2 - this.othello.getJugador1().getMano().size()*60;
-	for(Ficha c : this.othello.getJugador1().getMano()) {
-		Image image = Toolkit.getDefaultToolkit().getImage("img/" + c.getColor() + ".jpg");
-		g2d.drawImage(image, x, this.getHeight()-180, this);
-		x += 120;
+	g2d.setStroke(new BasicStroke(3));
+	for(int i=this.getWidth()/8; i<this.getWidth(); i+=this.getWidth()/8) {
+		g2d.drawLine(i, 0, i, this.getHeight());
+	}
+	for(int i=this.getHeight()/8; i<this.getHeight(); i+=this.getHeight()/8) {
+		g2d.drawLine(0, i, this.getWidth(), i);
 	}
 }
+
+
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
