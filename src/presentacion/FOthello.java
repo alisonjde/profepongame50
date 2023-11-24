@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class FOthello extends JFrame {
 	private PTablero pTablero;
@@ -30,6 +31,7 @@ public class FOthello extends JFrame {
 		this.pTablero = new PTablero();
 		this.add(this.pTablero, BorderLayout.CENTER);
 		
+	//	JOptionPane.showMessageDialog(this, "sfkjasfkjas");
 	}
 
 	public static void main(String[] args) {
