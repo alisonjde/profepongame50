@@ -32,7 +32,7 @@ public class FOthello extends JFrame {
 		this.setSize(800,800);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
-		this.fichas = new JLabel("                                    Fichas Blancas: "+ othello.contadorBlancas() + "        Fichas Negras : "+ othello.contadorNegras());
+		this.fichas = new JLabel("                                    Fichas Rosas: "+ othello.contadorBlancas() + "        Fichas Azules : "+ othello.contadorNegras());
 		
 		fichas.setFont(new Font("Arial", Font.PLAIN, 20));
 		
@@ -67,7 +67,7 @@ public class FOthello extends JFrame {
 	
 	public void actualizarContador() {
 	    
-		fichas.setText("                                    Fichas Blancas: "+ othello.contadorBlancas() + "        Fichas Negras : "+ othello.contadorNegras());
+		fichas.setText("                                    Fichas Rosas: "+ othello.contadorBlancas() + "        Fichas Azules : "+ othello.contadorNegras());
 
 	}
 
