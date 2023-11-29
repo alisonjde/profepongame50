@@ -47,20 +47,25 @@ public class PTablero extends JPanel implements MouseListener {
         }
 
         if (this.tMatriz != null) {
+        	
+            int imageWidth = this.getWidth() / 8;
+            int imageHeight = this.getHeight() / 8;
+            
+            
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 8; j++) {
                     if (this.tMatriz[i][j] == 1) {
                         Image img = new ImageIcon("img/fichaFNegra.png").getImage();
-                        g2d.drawImage(img, j * this.getWidth() / 8, i * this.getHeight() / 8, this.getWidth() / 8, this.getHeight() / 8, this);
+                        g2d.drawImage(img, j * imageWidth, i * imageHeight, imageWidth, imageHeight, this);
                     } else if (this.tMatriz[i][j] == 2) {
                         Image img = new ImageIcon("img/fichaFBlanca.png").getImage();
-                        g2d.drawImage(img, j * this.getWidth() / 8, i * this.getHeight() / 8, this.getWidth() / 8, this.getHeight() / 8, this);
+                        g2d.drawImage(img, j * imageWidth, i * imageHeight, imageWidth, imageHeight, this);//                        g2d.drawImage(img, j * this.getWidth() / 8, i * this.getHeight() / 8, this.getWidth() / 8, this.getHeight() / 8, this);
                     }
                 }
             }
         }
     }
-	
+    	
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {	

@@ -28,7 +28,7 @@ public class FOthello extends JFrame {
 	
 	public FOthello(Othello othello) {
 		this.setTitle("Juego Othello :)");
-		this.setSize(800,800);
+		this.setSize(700,700);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 		this.fichas = new JLabel("                                    Fichas Rosas: "+ othello.contadorBlancas() + "        Fichas Azules : "+ othello.contadorNegras());
