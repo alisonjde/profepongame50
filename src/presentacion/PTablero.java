@@ -21,8 +21,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class PTablero extends JPanel implements MouseListener {
+	
     private Othello othello;
-    private int[][] matrizJuego;
+    private int[][] tMatriz;
 
     private int turno=2;
     private FOthello fOthello;
@@ -30,9 +31,7 @@ public class PTablero extends JPanel implements MouseListener {
         this.othello = othello;
         this.fOthello = fOthello;
 		this.addMouseListener(this);
-
 	  }
-	
 	
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D)g;
@@ -47,13 +46,13 @@ public class PTablero extends JPanel implements MouseListener {
             g2d.drawLine(0, i, this.getWidth(), i);
         }
 
-        if (this.matrizJuego != null) {
+        if (this.tMatriz != null) {
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 8; j++) {
-                    if (this.matrizJuego[i][j] == 1) {
+                    if (this.tMatriz[i][j] == 1) {
                         Image img = new ImageIcon("img/fichaFNegra.png").getImage();
                         g2d.drawImage(img, j * this.getWidth() / 8, i * this.getHeight() / 8, this.getWidth() / 8, this.getHeight() / 8, this);
-                    } else if (this.matrizJuego[i][j] == 2) {
+                    } else if (this.tMatriz[i][j] == 2) {
                         Image img = new ImageIcon("img/fichaFBlanca.png").getImage();
                         g2d.drawImage(img, j * this.getWidth() / 8, i * this.getHeight() / 8, this.getWidth() / 8, this.getHeight() / 8, this);
                     }
@@ -61,20 +60,14 @@ public class PTablero extends JPanel implements MouseListener {
             }
         }
     }
-
-
-	
 	
 	
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+	public void mouseClicked(MouseEvent e) {	
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 		int fila = e.getX();
 		int columna = e.getY();
 		int primeraCoordenada = fila / (this.getWidth() / 8);
@@ -88,10 +81,9 @@ public class PTablero extends JPanel implements MouseListener {
 				setTurno(getTurno() + 1);
 		        othello.actualizarMovimientosCorrectos(1, othello.posiblesNegras);
 		        othello.actualizarMovimientosCorrectos(2, othello.posiblesBlancos);
-		        fOthello.actualizarContador();
-
-				
+		        fOthello.actualizarContador();				
 				}
+			
 		} else {
 			if (othello.movimientoCorrectoBlancas(segundaCoordenada, primeraCoordenada)) {
 				
@@ -106,46 +98,28 @@ public class PTablero extends JPanel implements MouseListener {
 
 		}
 
-	
-
 	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+	public void mouseReleased(MouseEvent e) {	
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+	public void mouseEntered(MouseEvent e) {	
 	}
 
 	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+	public void mouseExited(MouseEvent e) {	
 	}
-	
 		      
 	public void actualizarTablero() {
-	    this.matrizJuego = this.othello.getMatriz();
+	    this.tMatriz = this.othello.getMatriz();
 	    this.repaint();
 	}
-
-
+	
 	public int getTurno() {
 		return turno;
 	}
 
-
 	public void setTurno(int turno) {
 		this.turno = turno;
-	}
-	
-	
-
-		
-		  }
-		  
-
-
+	}	
+}
